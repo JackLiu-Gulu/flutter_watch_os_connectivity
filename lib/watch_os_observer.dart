@@ -34,7 +34,7 @@ class WatchOSObserver {
         break;
       case "pairDeviceInfoChanged":
         Map<String, dynamic> rawPairedDeviceInfoJson =
-            (call.arguments as Map? ?? {}).toMapStringDynamic();
+            jsonDecode(call.arguments);
         if (rawPairedDeviceInfoJson["error"] != null) {
           ///* Emit error and return
           pairedDeviceInfoStreamController
